@@ -13,6 +13,7 @@
       <el-table-column prop="address" label="车商金额(万元)"> </el-table-column>
     </el-table>
     <el-pagination
+      background
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
       :current-page="currentPage"
@@ -41,25 +42,30 @@ export default {
       // eslint-disable-next-line vue/require-valid-default-prop
       default: [],
     },
+    changeData: {
+      type: Function,
+    },
   },
   data() {
     return {
       tableData: this.tableDatas || [],
-      currentPage: 1, //初始页
-      pagesize: 5, //    每页的数据
+      currentPage: 1, // 初始页
+      pagesize: 5, // 每页的数据
     };
   },
   methods: {
     // 初始页currentPage、初始每页数据数pagesize和数据data
     handleSizeChange(size) {
-      console.log(size, "size");
       this.pagesize = size;
-      console.log(this.pagesize); //每页下拉显示数据
+      this.currentPage = 1;
+      this.changeData(0, size);
     },
     handleCurrentChange(currentPage) {
-      console.log(currentPage, "currentPage");
       this.currentPage = currentPage;
-      console.log(this.currentPage); //点击第几页
+      this.changeData(
+        (currentPage - 1) * this.pagesize,
+        currentPage * this.pagesize
+      );
     },
   },
   watch: {

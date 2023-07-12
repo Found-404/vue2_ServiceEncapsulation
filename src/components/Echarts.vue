@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="echarts">
-      <el-button @click="changeData">按钮(模拟请求)</el-button>
+      <el-button @click="changeData(0, 5)">按钮(模拟请求)</el-button>
       <div id="echart" ref="chartDom"></div>
     </div>
-    <TableDemo :tableDatas="tableData" />
+    <TableDemo :tableDatas="tableData" :changeData="changeData" />
   </div>
 </template>
 
@@ -15,7 +15,7 @@ import * as echarts from "echarts";
 const tableDatas = new Array(30).fill(1).map((ele, index) => {
   return {
     date: `名称${index + 1}`,
-    name: Math.random() * 10,
+    name: parseInt(Math.random() * 100),
     address: `上海市普陀区金沙江路 ${index} `,
   };
 });
@@ -85,16 +85,16 @@ export default {
       });
     },
 
-    // 按钮的方法（模拟请求）把它放进挂在前的函数体内
-    changeData() {
+    // 按钮的方法（模拟请求）把它放进组件挂载前的生命周期函数体内
+    changeData(agin = 0, max = 5) {
       // 假如`tableDatas`是你接口获取的参数
       this.tableData = tableDatas;
 
-      const xAxisData = tableDatas.map((ele) => {
+      const xAxisData = tableDatas.slice(agin, max).map((ele) => {
         return ele.date;
       });
 
-      const seriesData = tableDatas.map((ele) => {
+      const seriesData = tableDatas.slice(agin, max).map((ele) => {
         return ele.name;
       });
 
@@ -116,7 +116,6 @@ export default {
           },
         ],
       };
-      console.log(this.option);
       this.myChart.setOption(this.option);
     },
   },
