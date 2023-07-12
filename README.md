@@ -1,24 +1,16 @@
-# vue2
+# vue2业务组件封装
 
-## Project setup
+## 安装依赖
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+## 启动项目
 ```
 yarn serve
 ```
 
-### Compiles and minifies for production
+## 构建项目
 ```
 yarn build
 ```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
