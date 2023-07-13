@@ -19,14 +19,13 @@ export const useUserStore = defineStore('store', {
     },
     actions: {
         changeTagList(obj) {
-            const key = this.tagslist.find(item => {
-                return item.key == obj.key
-            })
-            if (!key) {
+            console.log(this.tagslist);
+            if (!this.tagslist.some(ele => ele.key === obj.key)) {
                 const objs = {
                     ...obj,
                     closable: false
                 }
+                console.log(this.tagslist.some(ele => ele.key === obj.key));
                 this.tagslist.push(objs)
             }
         },

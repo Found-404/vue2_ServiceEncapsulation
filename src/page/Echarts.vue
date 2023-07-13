@@ -118,6 +118,45 @@ export default {
       };
       this.myChart.setOption(this.option);
     },
+
+    // // 模拟请求
+    // getTableData(pageNum = 1, pageSize = 5) {
+    //   接口函数({
+    //     pageNum,
+    //     pageSize,
+    //   }).then((ele) => {
+    //     // 这个ele里面有接口返给你的数据
+    //     const xAxisData = tableDatas.map((ele) => {
+    //       return ele.date;
+    //     });
+
+    //     const seriesData = tableDatas.map((ele) => {
+    //       return ele.name;
+    //     });
+
+    //     this.option = {
+    //       // 配置项写在data里面方便管理
+    //       title: {
+    //         text: "ECharts 示例",
+    //       },
+    //       tooltip: {},
+    //       xAxis: {
+    //         data: xAxisData,
+    //       },
+    //       yAxis: {},
+    //       series: [
+    //         {
+    //           name: "销量",
+    //           type: "bar",
+    //           data: seriesData,
+    //         },
+    //       ],
+    //     };
+    //     this.myChart.setOption(this.option); // 更新图表
+
+    //     this.tableData = tableDatas; // 更新table
+    //   });
+    // },
   },
   beforeDestroy() {
     this.beforeDestroy(); // 清除
