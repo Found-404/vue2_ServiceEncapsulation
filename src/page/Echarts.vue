@@ -113,6 +113,13 @@ export default {
             name: "销量",
             type: "bar",
             data: seriesData,
+            label: {
+              show: true,
+              color: "inherit",
+              align: "center",
+              position: "top",
+              fontSize: "20px",
+            },
           },
         ],
       };
