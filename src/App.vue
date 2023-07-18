@@ -9,6 +9,8 @@
       <el-divider direction="vertical"></el-divider>
       <router-link to="/pinia">Pinia</router-link>
       <el-divider direction="vertical"></el-divider>
+      <router-link to="/select">Select</router-link>
+      <el-divider direction="vertical"></el-divider>
       <router-link to="/rollingchange">RollingChange</router-link>
     </div>
     <router-view></router-view>
@@ -16,6 +18,8 @@
 </template>
 
 <script>
+import { baseURL } from "../config/baseUrl";
+console.log(baseURL);
 export default {
   name: "App",
   components: {},
